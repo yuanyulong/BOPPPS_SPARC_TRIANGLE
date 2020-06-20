@@ -1,0 +1,94 @@
+{\rtf1\ansi\ansicpg936\cocoartf2511
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%\
+%% Template for a SPARC file\
+%% Author: Yulong Yuan\
+%% Description:AAS\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\
+\
+sorts\
+    #triangle = \{a, b\}.\
+    #side = \{a_s1, a_s2, a_s3, b_s1, b_s2, b_s3\}.\
+    #angle = \{a_a1, a_a2, a_a3, b_a1, b_a2, b_a3\}.\
+predicates\
+    %angle_of_triangle(X, Y) denotes that one angle of triangle Y is X degrees.\
+    angle_of_triangle(#angle, #triangle).\
+    %side_of_triangle(X, Y) denotes that one side of triangle Y is X.\
+    side_of_triangle(#side, #triangle).\
+    %angle_between_side1_and_side2(X, Y, Z) denotes that angle X is between side Y and side Z.\
+    angle_between_side1_and_side2(#angle, #side, #side).\
+    %side_between_angle1_and_angle2(X, Y, Z) denotes that side X is between angle Y and angle Z.\
+    side_between_angle1_and_angle2(#side, #angle, #angle).\
+    %side_opposite_to_angle(X, Y) denotes that side X is opposite to angle Y.\
+    side_opposite_to_angle(#side, #angle).\
+    %congruent(X, Y) denotes that triangle X and triangle Y are congruent.\
+    congruent(#triangle, #triangle).\
+rules\
+    %one angle of triangle a is a_a1 degrees.\
+    angle_of_triangle(a_a1, a).\
+    %one angle of triangle a is a_a2 degrees.\
+    angle_of_triangle(a_a2, a).\
+    %one angle of triangle a is a_a3 degrees.\
+    angle_of_triangle(a_a3, a).\
+    %one side of triangle a is a_s1.\
+    side_of_triangle(a_s1, a).\
+    %one side of triangle a is a_s2.\
+    side_of_triangle(a_s2, a).\
+    %one side of triangle a is a_s3.\
+    side_of_triangle(a_s3, a).\
+    %angle a_a1 is between side a_s2 and side a_s3.\
+    angle_between_side1_and_side2(a_a1, a_s2, a_s3).\
+    %angle a_a2 is between side a_s1 and side a_s3.\
+    angle_between_side1_and_side2(a_a2, a_s1, a_s3).\
+    %angle a_a3 is between side a_s1 and side a_s2.\
+    angle_between_side1_and_side2(a_a3, a_s1, a_s2).\
+    %side a_s1 is between angle a_a2 and angle a_a3\
+    side_between_angle1_and_angle2(a_s1, a_a2, a_a3).\
+    %side a_s2 is between angle a_a1 and angle a_a3\
+    side_between_angle1_and_angle2(a_s2, a_a1, a_a3).\
+    %side a_s3 is between angle a_a1 and angle a_a2\
+    side_between_angle1_and_angle2(a_s3, a_a1, a_a2).\
+    %side a_s1 is opposite to angle a_a1.\
+    side_opposite_to_angle(a_s1, a_a1).\
+    %side a_s2 is opposite to angle a_a2.\
+    side_opposite_to_angle(a_s2, a_a2).\
+    %side a_s3 is opposite to angle a_a3.\
+    side_opposite_to_angle(a_s3, a_a3).\
+    %one angle of triangle b is b_a1 degrees.\
+    angle_of_triangle(b_a1, b).\
+    %one angle of triangle b is b_a2 degrees.\
+    angle_of_triangle(b_a2, b).\
+    %one angle of triangle b is b_a3 degrees.\
+    angle_of_triangle(b_a3, b).\
+    %one side of triangle b is b_s1.\
+    side_of_triangle(b_s1, b).\
+    %one side of triangle b is b_s2.\
+    side_of_triangle(b_s2, b).\
+    %one side of triangle b is b_s3.\
+    side_of_triangle(b_s3, b).\
+    %angle b_a1 is between side b_s2 and side b_s3.\
+    angle_between_side1_and_side2(b_a1, b_s2, b_s3).\
+    %angle b_a2 is between side b_s1 and side b_s3.\
+    angle_between_side1_and_side2(b_a2, b_s1, b_s3).\
+    %angle b_a3 is between side b_s1 and side b_s2.\
+    angle_between_side1_and_side2(b_a3, b_s1, b_s2).\
+    %side b_s1 is between angle b_a2 and angle b_a3\
+    side_between_angle1_and_angle2(b_s1, b_a2, b_a3).\
+    %side b_s2 is between angle b_a1 and angle b_a3\
+    side_between_angle1_and_angle2(b_s2, b_a1, b_a3).\
+    %side b_s3 is between angle b_a1 and angle b_a2\
+    side_between_angle1_and_angle2(b_s3, b_a1, b_a2).\
+    %side b_s1 is opposite to angle b_a1.\
+    side_opposite_to_angle(b_s1, b_a1).\
+    %side b_s2 is opposite to angle b_a2.\
+    side_opposite_to_angle(b_s2, b_a2).\
+    %side b_s3 is opposite to angle b_a3.\
+    side_opposite_to_angle(b_s3, b_a3).\
+    %for any triangle X and triangle Y, if A1X is one angle of triangle X, A1Y is one angle of triangle Y, A2X is one angle of triangle X, A2Y is one angle of triangle Y, one side of triangle X is SX, one side of triangle Y is SY, side SX is opposite to angle A1X, side SY is opposite to angle A1Y, A1X = A1Y, A2X = A2Y, SX = SY, then triangle X and triangle Y are congruent.\
+    congruent(X, Y) :- angle_of_triangle(A1X, X), angle_of_triangle(A1Y, Y),  angle_of_triangle(A2X, X), angle_of_triangle(A2Y, Y), side_of_triangle(SX, X), side_of_triangle(SY, Y), side_opposite_to_angle(SX, A1X), side_opposite_to_angle(SY, A1Y), A1X = A1Y, A2X = A2Y, SX = SY.\
+    }
